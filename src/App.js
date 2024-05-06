@@ -12,7 +12,7 @@ function App(){
       return [
         ...prevUsersList,
         { name: uName, age: uAge, college: ucollege, id: Math.random().toString() },
-        console.log(uName,uAge,ucollege)
+      
       ];
     });
   };

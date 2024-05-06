@@ -17,15 +17,16 @@ const AddUser = (props) => {
     const enteredname = nameInputRef.current.value;
     const enteredage = ageInputRef.current.value;
     const enteredcollege = collegeInputRef.current.value;
+  
 
     if (
       enteredname.trim().length === 0 ||
-      enteredage.trim().length === 0 
+      enteredage.trim().length === 0 ||enteredcollege.trim().length===0
      
     ) {
       setError({
         title: "Invalid input",
-        message: "Please enter a valid name and age (non-empty values).",
+        message: "Please enter a valid name and age and college (non-empty values).",
       });
       return;
     }
@@ -39,7 +40,7 @@ const AddUser = (props) => {
     }
 
     props.onAddUser(enteredname, enteredage, enteredcollege);
-    // console.log(enteredname, enteredage);
+    console.log(enteredname, enteredage,enteredcollege);
     nameInputRef.current.value = '';
     ageInputRef.current.value = '';
     collegeInputRef.current.value = '';
@@ -65,11 +66,11 @@ const AddUser = (props) => {
         React uses htmlFor to avoid conflicts. */}
 
           <label htmlFor="username">Username</label>
-          <input id="username" type="text" ref={nameInputRef} />
+          <input id="username" type="text" required ref={nameInputRef} />
           <label htmlFor="age">Age(Years)</label>
-          <input id="age" type="number" ref={ageInputRef} />
+          <input id="age" type="number" required ref={ageInputRef} />
           <label htmlFor="collegename">College</label>
-          <input id="collegename" type="text" ref={collegeInputRef} />
+          <input id="collegename" type="text" required ref={collegeInputRef} />
 
           <Button type="submit">Add User</Button>
         </form>
